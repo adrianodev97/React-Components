@@ -1,14 +1,17 @@
-import { util } from "../util/util"
+import { useNavigate } from "react-router-dom"
+import Dropdown from "../components/Dropdown"
 
 const Home = () => {
+
+    const navigate = useNavigate()
+
+    const menuItems = [
+        {text: "Alert foo", onClick: () => {alert("foo")}},
+        {text: "Home", onClick: () => {navigate("/Home")}}]
+
     return (
         <>
-            <h1 className="text-warning"> {util.multi(5, 11)} </h1>
-            <div className="home">
-                <div className="containeir">
-
-                </div>
-            </div>
+            <Dropdown menuItems={menuItems}>Menu</Dropdown>
         </>
     )
 }
